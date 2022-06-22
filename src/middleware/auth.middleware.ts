@@ -18,6 +18,11 @@ const protect: RequestHandler = async (
   try {
     const decoded: any = verify(token, process.env.JWT_SECRET!);
     const user = await User.findById(decoded.id);
+
+    if (!user) {
+      return next(new ErrorResponse("Not authorized", 401));
+    }
+
     req.body.user = user;
     next();
   } catch (e) {

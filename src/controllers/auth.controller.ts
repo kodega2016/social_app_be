@@ -9,12 +9,6 @@ export const login = asyncHandler(
   async (req: Request, res: Response, next: NextFunction) => {
     const { email, password } = req.body;
 
-    if (!email || !password) {
-      return next(
-        new ErrorResponse("Please provide an email and password", 400)
-      );
-    }
-
     //check if user exists with that email address
     let user = await User.findOne({ email }).exec();
 
