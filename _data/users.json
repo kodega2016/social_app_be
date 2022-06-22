@@ -1,0 +1,19 @@
+[
+    {
+        "name":"Khadga Bahadur Shrestha",
+        "email":"khadgalovecoding2016@gmail.com",
+        "password":"password",
+        "role":"user"
+    },{
+        "name":"Nishuka Shrestha",
+        "email":"nishuka@gmail.com",
+        "password":"password",
+        "role":"user"
+    },
+    {
+        "name":"Kumar Rai",
+        "email":"raikumar@gmail.com",
+        "password":"password",
+        "role":"user"
+    }
+]
