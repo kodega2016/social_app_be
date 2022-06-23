@@ -26,6 +26,9 @@ require("./models/user.model");
 //setup body parser
 app.use(express_1.default.json());
 app.use(express_1.default.urlencoded({ extended: true }));
+//setup cors
+const cors_1 = __importDefault(require("cors"));
+app.use((0, cors_1.default)());
 //setup static files
 const path_1 = __importDefault(require("path"));
 app.use(express_1.default.static(path_1.default.join(__dirname, "public")));
