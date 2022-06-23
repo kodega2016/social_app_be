@@ -125,6 +125,15 @@ export const destroy = asyncHandler(
       );
     }
 
+    //delete image if exists
+    if (post.image && post.image != "/uploads/posts/default.png") {
+      const imagePath = `${process.env.FILE_UPLOAD_PATH}/posts/${post.image}`;
+
+      if (fs.existsSync(imagePath)) {
+        fs.unlinkSync(imagePath);
+      }
+    }
+
     await Post.findByIdAndDelete(id);
 
     res.status(200).json({

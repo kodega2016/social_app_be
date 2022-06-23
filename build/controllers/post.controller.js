@@ -95,6 +95,13 @@ exports.destroy = (0, asyncHandler_middleware_1.default)((req, res, next) => __a
     if ((post === null || post === void 0 ? void 0 : post.user.toString()) !== req.body.user._id.toString()) {
         return next(new ErrorResponse_1.default(`User ${req.body.user._id} is not authorized to delete this post`, 401));
     }
+    //delete image if exists
+    if (post.image && post.image != "/uploads/posts/default.png") {
+        const imagePath = `${process.env.FILE_UPLOAD_PATH}/posts/${post.image}`;
+        if (fs_1.default.existsSync(imagePath)) {
+            fs_1.default.unlinkSync(imagePath);
+        }
+    }
     yield post_model_1.Post.findByIdAndDelete(id);
     res.status(200).json({
         success: true,
