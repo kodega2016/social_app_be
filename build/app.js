@@ -26,6 +26,12 @@ require("./models/user.model");
 //setup body parser
 app.use(express_1.default.json());
 app.use(express_1.default.urlencoded({ extended: true }));
+//setup static files
+const path_1 = __importDefault(require("path"));
+app.use(express_1.default.static(path_1.default.join(__dirname, "public")));
+//setup express file upload
+const express_fileupload_1 = __importDefault(require("express-fileupload"));
+app.use((0, express_fileupload_1.default)());
 //import routes
 const routes_1 = __importDefault(require("./routes/routes"));
 app.use("/api/v1", routes_1.default);
