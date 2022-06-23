@@ -12,4 +12,5 @@ router.route("/register").post(auth_validation_1.validateRegister, auth_controll
 router.route("/me").get(auth_middleware_1.protect, auth_controller_1.me);
 router.route("/forgot-password").post(auth_controller_1.forgotPassword);
 router.route("/reset-password/:token").post(auth_controller_1.resetPassword);
+router.route("/logout").get(auth_controller_1.logout);
 //# sourceMappingURL=auth.route.js.map

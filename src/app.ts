@@ -19,6 +19,14 @@ import "./models/user.model";
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+//setup static files
+import path from "path";
+app.use(express.static(path.join(__dirname, "public")));
+
+//setup express file upload
+import fileUpload from "express-fileupload";
+app.use(fileUpload());
+
 //import routes
 import router from "./routes/routes";
 app.use("/api/v1", router);

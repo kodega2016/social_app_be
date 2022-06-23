@@ -5,20 +5,21 @@
   "main": "index.js",
   "scripts": {
     "start:compile": "tsc --watch",
-    "start:watch": "node ./build/app.js",
+    "start:watch": "nodemon ./build/app.js",
     "start": "concurrently npm:start:*",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "dependencies": {    
+  "dependencies": {
     "bcryptjs": "^2.4.3",
     "colors": "^1.4.0",
     "concurrently": "^7.2.2",
     "cors": "^2.8.5",
     "dotenv": "^16.0.1",
     "express": "^4.18.1",
+    "express-fileupload": "^1.4.0",
     "express-validator": "^6.14.2",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^6.4.0",
@@ -26,10 +27,11 @@
     "nodemailer": "^6.7.5"
   },
   "devDependencies": {
-    "@types/nodemailer": "^6.4.4",
     "@types/bcryptjs": "^2.4.2",
     "@types/cors": "^2.8.12",
     "@types/express": "^4.17.13",
-    "@types/jsonwebtoken": "^8.5.8"
+    "@types/express-fileupload": "^1.2.2",
+    "@types/jsonwebtoken": "^8.5.8",
+    "@types/nodemailer": "^6.4.4"
   }
 }
